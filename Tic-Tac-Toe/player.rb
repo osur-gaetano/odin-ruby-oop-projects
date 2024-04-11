@@ -2,12 +2,10 @@
 
 # Class that manages user
 class Player
-  attr_reader :marker, :position
+  attr_accessor :marker, :position, :name
 
-  attr_writter :position
-
-  def initialize(marker, position)
+  def initialize(name, marker)
+    self.name = name
     self.marker = marker
-    self.position = position
   end
 end
