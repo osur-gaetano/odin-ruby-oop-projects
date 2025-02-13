@@ -2,18 +2,17 @@
 
 # Board class impelementation
 class Board
-  attr_accessor :board_cells
-
   def initialize
-    self.board_cells = Array.new(9, nil)
+    @board_grid = Array.new(3) { Array.new(3, nil) }
   end
 
-  def to_s
-    "      |___|___|___|
-    __| #{board_cells[0]}  | #{board_cells[1]}  |  #{board_cells[2]} |__
-    __| #{board_cells[3]}  | #{board_cells[4]}  |  #{board_cells[5]} |__
-    __| #{board_cells[6]}  | #{board_cells[7]}  |  #{board_cells[8]} |__
-      |   |   |   |"
+  def display
+    puts "\n"
+    @board_grid.each_with_index do |row, i|
+      puts(row.map { |cell| cell.center(5).join '|' })
+      puts '-' * 17 unless i == 2
+    end
+    puts "\n"
   end
 
   def change_position(player)
